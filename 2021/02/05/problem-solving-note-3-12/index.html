@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2021 | Hexo</title>
+  <title>problem-solving-note.3-12 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/2021/index.html">
+  <meta name="description" content="3-12 图的匹配与分解1.匹配一些定义：  边独立集合：该集合任意两条边不邻接 图的匹配：图$G$中一个边独立集称为是$G$的一个匹配 互异代表元系（System of distinct representatives）：设非空有限集族$S_1,S_2,…,S_n$，若存在$n$个不同的元素$x_1,x_2,…x_n$，使得$x_i\in S_i$，则称该集族有一个互异代表元系 Maximum">
+<meta property="og:type" content="article">
+<meta property="og:title" content="problem-solving-note.3-12">
+<meta property="og:url" content="http://example.com/2021/02/05/problem-solving-note-3-12/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="3-12 图的匹配与分解1.匹配一些定义：  边独立集合：该集合任意两条边不邻接 图的匹配：图$G$中一个边独立集称为是$G$的一个匹配 互异代表元系（System of distinct representatives）：设非空有限集族$S_1,S_2,…,S_n$，若存在$n$个不同的元素$x_1,x_2,…x_n$，使得$x_i\in S_i$，则称该集族有一个互异代表元系 Maximum">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-02-05T11:34:55.000Z">
+<meta property="article:modified_time" content="2021-02-05T11:37:44.699Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="3-12-图的匹配与分解">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -158,36 +163,111 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-problem-solving-note-3-12" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/02/05/problem-solving-note-3-12/" class="archive-article-date">
-  	<time datetime="2021-02-05T11:34:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-05</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/02/05/problem-solving-note-3-12/">problem-solving-note.3-12</a>
+    <h1 class="article-title" itemprop="name">
+      problem-solving-note.3-12
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2021/02/05/problem-solving-note-3-12/" class="archive-article-date">
+  	<time datetime="2021-02-05T11:34:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="3-12-图的匹配与分解"><a href="#3-12-图的匹配与分解" class="headerlink" title="3-12 图的匹配与分解"></a>3-12 图的匹配与分解</h1><h3 id="1-匹配"><a href="#1-匹配" class="headerlink" title="1.匹配"></a>1.匹配</h3><p>一些定义：</p>
+<ol>
+<li>边独立集合：该集合任意两条边不邻接</li>
+<li>图的匹配：图$G$中一个边独立集称为是$G$的一个匹配</li>
+<li>互异代表元系（System of distinct representatives）：设非空有限集族$S_1,S_2,…,S_n$，若存在$n$个不同的元素$x_1,x_2,…x_n$，使得$x_i\in S_i$，则称该集族有一个互异代表元系</li>
+<li>Maximum matching：具有最大基数的匹配为最大匹配。对于$n$阶图，其最大匹配的基数不超过$\lfloor n/2\rfloor$</li>
+<li>perfect matching：若阶为$2k$的图$G$存在一个基数为$k$的匹配$M$，则称该匹配$M$为完美匹配</li>
+<li>边独立数（edge independence number）：$G$中边独立集的最大基数，记为$\alpha’(G)$。则图$G$存在完美匹配当且仅当n为偶数且$\alpha’(G)=n/2$</li>
+<li>覆盖(cover)：一个顶点与其关联的边称为彼此覆盖</li>
+<li>对于__没有孤立点__的图$G$的边覆盖(edge cover)是一个覆盖了图$G$所有顶点的边集</li>
+<li>边覆盖数(edge covering number)：图$G$的边覆盖的最小基数，记为$\beta’(G)$，拥有最小基数的边覆盖称为最小边覆盖(minimum edge cover)</li>
+<li>点独立集（独立集）：该集合中任意两顶点都不邻接</li>
+<li>点独立数(vertex independence number)（或简称独立数）：$G$中点独立集的最大基数，记为$\alpha(G)$</li>
+<li>最大独立集(Maximum independent set)：基数为$\alpha(G)$的点独立集</li>
+<li>点覆盖(vertex cover)：如果图$G$的某个顶点子集可以覆盖$G$的所有边，那么称该集合为$G$的点覆盖</li>
+<li>点覆盖数(vertex covering number)：$G$的所有点覆盖的最小基数，记为$\beta(G)$。拥有最小基数的点覆盖称为最小点覆盖(minimum vertex cover)</li>
+</ol>
+<p>下面对于二部图考虑一些概念：设$G$为二部图，部集为$U$和$W$，其中$r=|U|\leq |W|$ </p>
+<ol>
+<li>二部图的匹配：边集$M$为边独立集合，假设$|M|=K$，那么匹配的含义即为将$U$的$k$个元素匹配到$W$的$k$个元素。</li>
+<li>邻域(Neighborhood):对于$U$的非空子集$X$，$X$中所有顶点的邻域的并称为$X$的邻域，记为$N(X)$</li>
+<li>部集$U$称为是友好的(或者叫图$G$ satisfy Hall’s condition)，若对于$U$的任意非空子集$X$都有$|N(X)|\geq |X|$。</li>
+</ol>
+<p>一些定理：</p>
+<ol>
+<li>设$G$为二部图，部集为$U$和$W$，其中$r=|U|\leq |W|$，则$G$包含一个基数为$r$的匹配当且仅当$U$是友好的(图$G$ satisfy Hall’s condition)</li>
+<li>非空有限集族${S_1,…,S_n}$有一个互异代表元系当且仅当对于任一整数$k(1\leq k\leq n)$，集族中任意$k$个集合的并至少包含$k$个元素。</li>
+<li>(<strong>The Marriage Theorem</strong>) 在一个由$r$个女人和$s$个男人构成的人群中，$1\leq r\leq s$。在熟识的男女之间可能出现$r$对婚姻当且仅当对于每个整数$k(1\leq k\leq r)$，任意$k$个女人共认识至少$k$个男人</li>
+<li>任意$r$正则二部图均有一个完美匹配</li>
+<li>对于任意不包含孤立点的$n$阶图$G$，$\alpha’(G)+\beta’(G)=n$ ，$\alpha(G)+\beta(G)=n$</li>
+<li>$F$是点覆盖集当且仅当$V(G)-F$是点独立集</li>
+</ol>
+<h3 id="因子分解"><a href="#因子分解" class="headerlink" title="因子分解"></a>因子分解</h3><p>一些定义：</p>
+<ol>
+<li><p>由完美匹配$M$生成的子图$F=<M>$为$G$的$1$正则生成子图。$G$的$1$正则生成子图也称为$G$的$1$因子（1-factor）。</p>
+</li>
+<li><p>图的一个连通分支称为是奇的或偶的，如果该连通分支的阶数是奇数或偶数。且图的奇连通分支个数为$k_o(G)$，特别的，若$G$为偶数阶的Hamilton图那么对于$V(G)$的任意非空真子集$S$，$k_o(G-S)\leq |S|$</p>
+</li>
+<li><p>图$G$称为__可1因子分解的(1-factorable)__，若$G$有1因子$F_1,F_2,…,F_r$，使得${E(F_1),E(F_2),…,E(F_r)}$是$E(G)$的一个划分，此时，我们称$G$被__因子分解(factored)__成1因子$F_1,…,F_r$。这些1因子构成了$G$的__1因子分解(factorization)__。</p>
+</li>
+<li><p>类似的，图$G$的2正则生成子图称为是$G$的一个__2因子（2-factor）__。2因子的任意连通分支是一个cycle</p>
+</li>
+<li><p>图$G$称为__可2因子分解的(2-factorable)__，若$G$有2因子$F_1,F_2,…,F_k$，使得${E(F_1),E(F_2),…,E(F_k)}$是$E(G)$的一个划分。此时图$G$是$2k$正则的</p>
+</li>
+<li><p>__Hamilton因子分解__：指的是图$G$的一个2因子分解，且满足该分解中所有2因子都是Hamilton环</p>
+</li>
+<li><p>__可Hamilton因子分解的__：若图$G$含有一个Hamilton因子分解</p>
+</li>
+<li><p>更为一般的，图$G$不含有孤立点的生成子图$F$称为是$G$的因子(factor)。图$G$称为是可因子分解为因子$F_1,F_2,…,F_k$，若${E(F_1),…,E(F_k)}$是$E(G)$的一个划分。若存在某个图$F$，使得每个因子$F_i\cong F$，则称$G$是可$F$因子分解的</p>
+</li>
+<li><p>n阶的__Kirkman三元系(Kirkman triple system)__是由一个基数为$n$的集合$S$，和$S$的三元子集(或称为三元组(triple))族$T$，以及$T$的一个划分$\mathcal{P}$，且满足以下性质：</p>
+<p>(1) $S$中任意两个不同的元素属于$T$中唯一的三元组</p>
+<p>(2) $S$中任一元素属于划分$\mathcal{P}$的每一元素的唯一的三元组</p>
+</li>
+</ol>
+<p>一些定理：</p>
+<ol>
+<li>图$G$有1因子当且仅当$G$有完美匹配</li>
+<li>（__Tutte 定理__）图$G$包含1因子当且仅当对于$V(G)$的任意真子集$S$，$k_o(G-S)\leq |S|$</li>
+<li>(<strong>Peterson 定理</strong>)任一不含割边的3正则图都包含1因子</li>
+<li>任一至多含有两条割边的3正则图包含1因子</li>
+<li>对于任一正整数$k$，完全图$K_{2k}$是可1因子分解的</li>
+<li>任意r正则的二部图是可1因子分解的</li>
+<li>图$G$是可2因子分解的当且仅当存在某个正偶数$r$，使得$G$是$r$正则的</li>
+<li>对于任一整数$k$，完全图$K_{2k+1}$是可Hamilton因子分解的</li>
+<li>K_9是可3K_3因子分解的</li>
+<li>n阶的Kirkman三元系存在当且仅当$n\equiv 3(mod;6)$</li>
+<li>对于每个整数$k\geq 1$，完全图$K_{2k}$可以因子分解为$k-1$个Hamilton圈和一个1因子</li>
+</ol>
+<p>一些简单的推论：</p>
+<ol>
+<li>对于偶数$n\geq 4$，$C_n,K_n,Peterson ;Graph$有1因子</li>
+<li>对于$K_{r,s}$，有1因子当且仅当$r=s$</li>
+<li>偶数阶的$Hamilton$图包含1因子（且包含两个互不相交的完美匹配）</li>
+<li>任何可1因子分解的图是正则的</li>
+<li>Peterson图不是可1因子分解的</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -199,73 +279,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/02/05/problem-solving-note-3-12/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/02/05/test-my-site/" class="archive-article-date">
-  	<time datetime="2021-02-05T10:03:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-05</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2021/02/05/test-my-site/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">test_my_site</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/02/05/test-my-site/">test_my_site</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/02/05/hello-world/" class="archive-article-date">
-  	<time datetime="2021-02-05T09:59:59.013Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/02/05/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -288,8 +401,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
