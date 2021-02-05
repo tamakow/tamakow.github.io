@@ -16,7 +16,7 @@
 <meta property="og:description" content="3-12 图的匹配与分解">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-02-05T11:34:55.000Z">
-<meta property="article:modified_time" content="2021-02-05T11:57:45.932Z">
+<meta property="article:modified_time" content="2021-02-05T12:07:29.329Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="3-12-图的匹配与分解">
 <meta name="twitter:card" content="summary">
@@ -196,7 +196,7 @@
 <li>perfect matching：若阶为$2k$的图$G$存在一个基数为$k$的匹配$M$，则称该匹配$M$为完美匹配</li>
 <li>边独立数（edge independence number）：$G$中边独立集的最大基数，记为$\alpha’(G)$。则图$G$存在完美匹配当且仅当n为偶数且$\alpha’(G)=n/2$</li>
 <li>覆盖(cover)：一个顶点与其关联的边称为彼此覆盖</li>
-<li>对于__没有孤立点__的图$G$的边覆盖(edge cover)是一个覆盖了图$G$所有顶点的边集</li>
+<li>对于<strong>没有孤立点</strong>的图$G$的边覆盖(edge cover)是一个覆盖了图$G$所有顶点的边集</li>
 <li>边覆盖数(edge covering number)：图$G$的边覆盖的最小基数，记为$\beta’(G)$，拥有最小基数的边覆盖称为最小边覆盖(minimum edge cover)</li>
 <li>点独立集（独立集）：该集合中任意两顶点都不邻接</li>
 <li>点独立数(vertex independence number)（或简称独立数）：$G$中点独立集的最大基数，记为$\alpha(G)$</li>
@@ -225,27 +225,29 @@
 </li>
 <li><p>图的一个连通分支称为是奇的或偶的，如果该连通分支的阶数是奇数或偶数。且图的奇连通分支个数为$k_o(G)$，特别的，若$G$为偶数阶的Hamilton图那么对于$V(G)$的任意非空真子集$S$，$k_o(G-S)\leq |S|$</p>
 </li>
-<li><p>图$G$称为__可1因子分解的(1-factorable)__，若$G$有1因子$F_1,F_2,…,F_r$，使得${E(F_1),E(F_2),…,E(F_r)}$是$E(G)$的一个划分，此时，我们称$G$被__因子分解(factored)__成1因子$F_1,…,F_r$。这些1因子构成了$G$的__1因子分解(factorization)__。</p>
+<li><p>图$G$称<strong>可1因子分解的(1-factorable)**，若$G$有1因子$F_1,F_2,…,F_r$，使得${E(F_1),E(F_2),…,E(F_r)}$是$E(G)$的一个划分，此时，我们称$G$被</strong>因子分解(factored)<strong>成1因子$F_1,…,F_r$。这些1因子构成了$G$的</strong>1因子分解(factorization)**。</p>
 </li>
-<li><p>类似的，图$G$的2正则生成子图称为是$G$的一个__2因子（2-factor）__。2因子的任意连通分支是一个cycle</p>
+<li><p>类似的，图$G$的2正则生成子图称为是$G$的一个<strong>2因子（2-factor）</strong>。2因子的任意连通分支是一个cycle</p>
 </li>
-<li><p>图$G$称为__可2因子分解的(2-factorable)__，若$G$有2因子$F_1,F_2,…,F_k$，使得${E(F_1),E(F_2),…,E(F_k)}$是$E(G)$的一个划分。此时图$G$是$2k$正则的</p>
+<li><p>图$G$称为**可2因子分解的(2-factorable)**，若$G$有2因子$F_1,F_2,…,F_k$，使得${E(F_1),E(F_2),…,E(F_k)}$是$E(G)$的一个划分。此时图$G$是$2k$正则的</p>
 </li>
-<li><p>__Hamilton因子分解__：指的是图$G$的一个2因子分解，且满足该分解中所有2因子都是Hamilton环</p>
+<li><p><strong>Hamilton因子分解</strong>：指的是图$G$的一个2因子分解，且满足该分解中所有2因子都是Hamilton环</p>
 </li>
-<li><p>__可Hamilton因子分解的__：若图$G$含有一个Hamilton因子分解</p>
+<li><p><strong>可Hamilton因子分解的</strong>：若图$G$含有一个Hamilton因子分解</p>
 </li>
 <li><p>更为一般的，图$G$不含有孤立点的生成子图$F$称为是$G$的因子(factor)。图$G$称为是可因子分解为因子$F_1,F_2,…,F_k$，若${E(F_1),…,E(F_k)}$是$E(G)$的一个划分。若存在某个图$F$，使得每个因子$F_i\cong F$，则称$G$是可$F$因子分解的</p>
 </li>
-<li><p>n阶的__Kirkman三元系(Kirkman triple system)__是由一个基数为$n$的集合$S$，和$S$的三元子集(或称为三元组(triple))族$T$，以及$T$的一个划分$\mathcal{P}$，且满足以下性质：</p>
-<p>(1) $S$中任意两个不同的元素属于$T$中唯一的三元组</p>
-<p>(2) $S$中任一元素属于划分$\mathcal{P}$的每一元素的唯一的三元组</p>
+<li><p>n阶的**Kirkman三元系(Kirkman triple system)**是由一个基数为$n$的集合$S$，和$S$的三元子集(或称为三元组(triple))族$T$，以及$T$的一个划分$\mathcal{P}$，且满足以下性质：</p>
+<ul>
+<li>$S$中任意两个不同的元素属于$T$中唯一的三元组</li>
+<li> $S$中任一元素属于划分$\mathcal{P}$的每一元素的唯一的三元组</li>
+</ul>
 </li>
 </ol>
 <p>一些定理：</p>
 <ol>
 <li>图$G$有1因子当且仅当$G$有完美匹配</li>
-<li>（__Tutte 定理__）图$G$包含1因子当且仅当对于$V(G)$的任意真子集$S$，$k_o(G-S)\leq |S|$</li>
+<li>（<strong>Tutte 定理</strong>）图$G$包含1因子当且仅当对于$V(G)$的任意真子集$S$，$k_o(G-S)\leq |S|$</li>
 <li>(<strong>Peterson 定理</strong>)任一不含割边的3正则图都包含1因子</li>
 <li>任一至多含有两条割边的3正则图包含1因子</li>
 <li>对于任一正整数$k$，完全图$K_{2k}$是可1因子分解的</li>
